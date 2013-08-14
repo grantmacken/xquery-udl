@@ -26,15 +26,9 @@ class KoxqueryLanguage(KoUDLLanguage):
 
     commentDelimiterInfo = {
         "line": [
-                #'//',   # C-style one line comments
-                #'#',    # Hash-style one line comments
-                #'--',   # SQL-style one line comments
-                #';',    # Lisp-style one line comments
-                #'%',    # Erlang-style one line comments
                 ],
         "block": [
-                #('/*', '*/')   # C-style block comments
-                ('(*', '*)')   # Pascal-style block comments
+                ('(:', ':)')   # xquery-style block comments
                 ],
     }
 

@@ -1,0 +1,12 @@
+# Goals:
+# < => xquery(ssl)
+# > => markup
+
+family ssl
+
+
+state IN_SSL_DEFAULT:
+    '}' : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR), spop_check, => IN_M_DEFAULT
+
+   '<' :  paint(upto, SSL_DEFAULT) ,  redo, spop_check, => IN_M_DEFAULT
+
