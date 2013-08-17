@@ -9,18 +9,17 @@ xquery-udl
 Transitions
 ===========
 
-
  transtions from xquery to markup seem to work ok
+
  transtions from markup to xquery seem to work ok
 
 Xquery Operators
 ================
 
 
-1. Sequence Operators ```union ``` etc
-2. Value Comparison Operators ``` eq, ne, lt, gt, le, ge ```
-3. Arithmetic Operators  ```+, -, *, div, idiv, and mod```
+Added  XPath and XQuery Functions and Operators
 
+need some more logic here to indentify functions  'node' vs 'node()'
 
 http://docs.activestate.com/komodo/4.4/luddite.html
 http://www.activestate.com/blog/2007/01/adding-new-languages-komodo-udl
