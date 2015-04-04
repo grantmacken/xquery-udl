@@ -9,9 +9,9 @@ xquery-udl
 Transitions
 ===========
 
- transtions from xquery to markup seem to work ok
+ transitions from xquery to markup seem to work ok
 
- transtions from markup to xquery seem to work ok
+ transitions from markup to xquery seem to work OK
 
 Xquery Operators
 ================
@@ -19,7 +19,7 @@ Xquery Operators
 
 Added  XPath and XQuery Functions and Operators
 
-need some more logic here to indentify functions  'node' vs 'node()'
+Need some more logic here to identify functions  'node' vs 'node()'
 
 http://docs.activestate.com/komodo/4.4/luddite.html
 http://www.activestate.com/blog/2007/01/adding-new-languages-komodo-udl

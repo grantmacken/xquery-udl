@@ -19,16 +19,24 @@ class KoxqueryLanguage(KoUDLLanguage):
     _reg_desc_ = "%s Language" % name
     _reg_contractid_ = "@activestate.com/koLanguage?language=%s;1" % name
     _reg_categories_ = [("komodo-language", name)]
-    _reg_clsid_ = "3e138769-aa6b-459f-85ad-f24a5f531b16"
+    _reg_clsid_ = "d09e9093-f4bc-46e2-89e0-1058269d6c1b"
+
     defaultExtension = '.xq'
+    primary = 1  # Whether the language shows up in Komodo's first level language menus.
 
     # ------------ Commenting Controls ------------ #
 
     commentDelimiterInfo = {
         "line": [
+                #'//',   # C-style one line comments
+                #'#',    # Hash-style one line comments
+                #'--',   # SQL-style one line comments
+                #';',    # Lisp-style one line comments
+                #'%',    # Erlang-style one line comments
                 ],
         "block": [
-                ('(:', ':)')   # xquery-style block comments
+                #('/*', '*/')   # C-style block comments
+                ('(:', ':)')   # Pascal-style block comments
                 ],
     }
 

@@ -1,8 +1,10 @@
 # UDL lexer for xquery.
 #
 # Note: UDL is a state machine and it uses regular expressions to move between
-#","\n","\n","\n the different language states.
+#       the different language states.
 #
+
+language xquery
 
 ################ Boilerplate ################
 
@@ -17,6 +19,7 @@ state IN_M_DEFAULT:
 ################ Language Start ################
 
 family ssl # server side language
+sublanguage xquery
 
 # Specify the min and max styles we'll be referring to.
 start_style SSL_DEFAULT
@@ -25,100 +28,86 @@ end_style SSL_VARIABLE
 # If the language has keywords, specify which style needs to be transformed
 keyword_style SSL_IDENTIFIER => SSL_WORD
 keywords [
-        "xquery",
-        #expressions
-        #flowr
-        #  For Clause
-        "for",  "at", "allowing empty", "in","return",
-        #  Let, Where, Count, group by Clauses
-        "let",  "as", "where", "count", "group by",
-        # Order By Clause
-        "order by",  "stable order by",
-         "ascending",  "descending", "empty greatest",  "empty least", "collation", "default",
-        #range  and combining expressions
-        "to", "satisfies", "union", "intersect", "except", "preserve strip",
-        # Conditional, Switch, Quantified,  Try/CatchExpressions
-        "if", "then", "else",
-        "switch", "case",
-        "some", "every", "in", "satisfies",
-        "try", "catch",
-        #Expressions on SequenceTypes
-        "instance of", "typeswitch",
-        "cast as", "castable as", "treat as",
-        # Map
-        "map",
-        #Validate Expressions
-        "validate", "type", "lax" , "strict",
-        # Axes
-         "child", "descendant", "attribute", "self", "descendant-or-self", "following-sibling", "following",
-          "parent", "ancestor" ,"preceding-sibling" ,"preceding"  ,"ancestor-or-self"
-       #kind test and Computed Constructors
-       "node", "text", "comment", "namespace-node", "schema-element", "element", "attribute", "document-node",
-       "document", "namespace" "node-name",
-       # Declare
-        "module namespace", "declare boundary-space",
-        "declare default collation", "declare namespace", "declare base-uri", "declare" "construction", "declare ordering",
-        "declare decimal-format", "declare default decimal-format",
-         "import schema", "import module", "declare copy-namespaces",
-         "declare default element", "declare default function",
-         "declare %," "declare variable", "declare function", "declare context item",
-         "declare option",
+"xquery",
+#expressions
+#flowr
+#  For Clause
+"for",  "at", "allowing empty", "in", "return",
+#  Let, Where, Count, group by Clauses
+"let", "as", "where", "count", "group by",
+# Order By Clause
+"order by", "stable order by",
+"ascending", "descending", "empty greatest", "empty least", "collation", "default",
+#range  and combining expressions
+"to", "satisfies", "union", "intersect", "except", "preserve strip",
+# Conditional, Switch, Quantified,  Try/CatchExpressions
+"if", "then", "else",
+"switch", "case",
+"some", "every", "in", "satisfies",
+"try", "catch",
+#Expressions on SequenceTypes
+"instance of", "typeswitch",
+"cast as", "castable as", "treat as",
+# Map
+"map",
+#Validate Expressions
+"validate", "type", "lax", "strict",
+# Axes
+"child", "descendant", "attribute", "self", "descendant-or-self", "following-sibling", "following",
+"parent", "ancestor", "preceding-sibling", "preceding", "ancestor-or-self"
+#kind test and Computed Constructors
+"node", "text", "comment", "namespace-node", "schema-element", "element", "attribute", "document-node",
+"document", "namespace", "node-name",
+# Declare
+"module namespace", "declare boundary-space",
+"declare default collation", "declare namespace", "declare base-uri", "declare", "construction", "declare ordering",
+"declare decimal-format", "declare default decimal-format",
+"import schema", "import module", "declare copy-namespaces",
+"declare default element", "declare default function",
+"declare %", "declare variable", "declare function", "declare context item",
+"declare option",
 # XPath and XQuery Functions and Operators 3.0
-"abs","acos","add-dayTimeDurations","add-dayTimeDuration-to-date","add-dayTimeDuration-to-dateTime",
-"add-dayTimeDuration-to-time","add-yearMonthDurations","add-yearMonthDuration-to-date",
-"add-yearMonthDuration-to-dateTime","adjust-dateTime-to-timezone","adjust-date-to-timezone",
-"adjust-time-to-timezone","analyze-string","asin","atan","atan2","available-environment-variables","avg",
-"base64Binary-equal","base-uri","boolean","boolean-equal","boolean-greater-than","boolean-less-than",
-"ceiling","codepoint-equal","codepoints-to-string","collection","compare","concat","concatenate",
-"contains","cos","count","current-date","current-dateTime","current-time","data","date-equal","date-greater-than",
-"date-less-than","dateTime","dateTime-equal","dateTime-greater-than","dateTime-less-than","day-from-date","day-from-dateTime",
-"days-from-duration","dayTimeDuration-greater-than","dayTimeDuration-less-than","deep-equal","default-collation","distinct-values",
-"divide-dayTimeDuration","divide-dayTimeDuration-by-dayTimeDuration","divide-yearMonthDuration",
-"divide-yearMonthDuration-by-yearMonthDuration","doc","doc-available","document-uri","duration-equal",
-"element-with-id","empty","encode-for-uri","ends-with","environment-variable","error","escape-html-uri",
-"exactly-one","except","exists","exp","exp10","false","filter","floor","fold-left","fold-right","for-each",
-"for-each-pair","format-date","format-dateTime","format-integer","format-number","format-time","function-arity",
-"function-lookup","function-name","gDay-equal","generate-id","gMonthDay-equal","gMonth-equal","gYear-equal","gYearMonth-equal",
-"has-children","head","hexBinary-equal","hours-from-dateTime","hours-from-duration","hours-from-time","id","idref",
-"implicit-timezone","index-of","innermost","in-scope-prefixes","insert-before","intersect","iri-to-uri","is-same-node",
-"lang","last","local-name","local-name-from-QName","log","log10","lower-case","matches","max","min","minutes-from-dateTime",
-"minutes-from-duration","minutes-from-time","month-from-date","month-from-dateTime","months-from-duration","multiply-dayTimeDuration",
-"multiply-yearMonthDuration","name","namespace-uri","namespace-uri-for-prefix","namespace-uri-from-QName","nilled","node-after",
-"node-before","node-name","normalize-space","normalize-unicode","not","NOTATION-equal","number","numeric-add","numeric-divide",
-"numeric-equal","numeric-greater-than","numeric-integer-divide","numeric-less-than","numeric-mod","numeric-multiply","numeric-subtract",
-"numeric-unary-minus","numeric-unary-plus","one-or-more","outermost","parse-xml","parse-xml-fragment","path","pi","position","pow",
-"prefix-from-QName","QName","QName-equal","remove","replace","resolve-QName","resolve-uri","reverse","root","round","round-half-to-even",
-"seconds-from-dateTime","seconds-from-duration","seconds-from-time","serialize","sin","sqrt","starts-with","static-base-uri","string",
-"string-join","string-length","string-to-codepoints","subsequence","substring","substring-after","substring-before","subtract-dates",
-"subtract-dateTimes","subtract-dayTimeDuration-from-date","subtract-dayTimeDuration-from-dateTime","subtract-dayTimeDuration-from-time",
-"subtract-dayTimeDurations","subtract-times","subtract-yearMonthDuration-from-date","subtract-yearMonthDuration-from-dateTime",
-"subtract-yearMonthDurations","sum","tail","tan","time-equal","time-greater-than","time-less-than","timezone-from-date",
-"timezone-from-dateTime","timezone-from-time","to","tokenize","trace","translate","true","union","unordered","unparsed-text",
-"unparsed-text-available","unparsed-text-lines","upper-case","uri-collection","year-from-date","year-from-dateTime",
-"yearMonthDuration-greater-than","yearMonthDuration-less-than","years-from-duration","zero-or-one,"
+"abs", "acos", "add-dayTimeDurations", "add-dayTimeDuration-to-date", "add-dayTimeDuration-to-dateTime",
+"add-dayTimeDuration-to-time", "add-yearMonthDurations", "add-yearMonthDuration-to-date",
+"add-yearMonthDuration-to-dateTime", "adjust-dateTime-to-timezone", "adjust-date-to-timezone",
+"adjust-time-to-timezone", "analyze-string", "asin", "atan", "atan2", "available-environment-variables", "avg",
+"base64Binary-equal", "base-uri", "boolean", "boolean-equal", "boolean-greater-than", "boolean-less-than",
+"ceiling", "codepoint-equal", "codepoints-to-string", "collection", "compare", "concat", "concatenate",
+"contains", "cos", "count", "current-date", "current-dateTime", "current-time", "data", "date-equal", "date-greater-than",
+"date-less-than", "dateTime", "dateTime-equal", "dateTime-greater-than", "dateTime-less-than", "day-from-date", "day-from-dateTime",
+"days-from-duration", "dayTimeDuration-greater-than", "dayTimeDuration-less-than", "deep-equal", "default-collation", "distinct-values",
+"divide-dayTimeDuration", "divide-dayTimeDuration-by-dayTimeDuration", "divide-yearMonthDuration",
+"divide-yearMonthDuration-by-yearMonthDuration", "doc", "doc-available", "document-uri", "duration-equal",
+"element-with-id", "empty", "encode-for-uri", "ends-with", "environment-variable", "error", "escape-html-uri",
+"exactly-one", "except", "exists", "exp", "exp10", "false", "filter", "floor", "fold-left", "fold-right", "for-each",
+"for-each-pair", "format-date", "format-dateTime", "format-integer", "format-number", "format-time", "function-arity",
+"function-lookup", "function-name", "gDay-equal", "generate-id", "gMonthDay-equal", "gMonth-equal", "gYear-equal", "gYearMonth-equal",
+"has-children", "head", "hexBinary-equal", "hours-from-dateTime", "hours-from-duration", "hours-from-time", "id", "idref",
+"implicit-timezone", "index-of", "innermost", "in-scope-prefixes", "insert-before", "intersect", "iri-to-uri", "is-same-node",
+"lang", "last", "local-name", "local-name-from-QName", "log", "log10", "lower-case", "matches", "max", "min", "minutes-from-dateTime",
+"minutes-from-duration", "minutes-from-time", "month-from-date", "month-from-dateTime", "months-from-duration", "multiply-dayTimeDuration",
+"multiply-yearMonthDuration", "name", "namespace-uri", "namespace-uri-for-prefix", "namespace-uri-from-QName", "nilled", "node-after",
+"node-before", "node-name", "normalize-space", "normalize-unicode", "not", "NOTATION-equal", "number", "numeric-add", "numeric-divide",
+"numeric-equal", "numeric-greater-than", "numeric-integer-divide", "numeric-less-than", "numeric-mod", "numeric-multiply", "numeric-subtract",
+"numeric-unary-minus", "numeric-unary-plus", "one-or-more", "outermost", "parse-xml", "parse-xml-fragment", "path", "pi", "position", "pow",
+"prefix-from-QName", "QName", "QName-equal", "remove", "replace", "resolve-QName", "resolve-uri", "reverse", "root", "round", "round-half-to-even",
+"seconds-from-dateTime", "seconds-from-duration", "seconds-from-time", "serialize", "sin", "sqrt", "starts-with", "static-base-uri", "string",
+"string-join", "string-length", "string-to-codepoints", "subsequence", "substring", "substring-after", "substring-before", "subtract-dates",
+"subtract-dateTimes", "subtract-dayTimeDuration-from-date", "subtract-dayTimeDuration-from-dateTime", "subtract-dayTimeDuration-from-time",
+"subtract-dayTimeDurations", "subtract-times", "subtract-yearMonthDuration-from-date", "subtract-yearMonthDuration-from-dateTime",
+"subtract-yearMonthDurations", "sum", "tail", "tan", "time-equal", "time-greater-than", "time-less-than", "timezone-from-date",
+"timezone-from-dateTime", "timezone-from-time", "to", "tokenize", "trace", "translate", "true", "union", "unordered", "unparsed-text",
+"unparsed-text-available", "unparsed-text-lines", "upper-case", "uri-collection", "year-from-date", "year-from-dateTime",
+"yearMonthDuration-greater-than", "yearMonthDuration-less-than", "years-from-duration", "zero-or-one"
 ]
 
 # Set the basic patterns we'll be using for styling transitions.
 # For most programming languages, names cannot start with a number, but they
 # often allow a number after the first character - e.g. "bar21a"
-# Names and Tokens ref http://www.w3.org/TR/REC-xml/#NT-S
-pattern NAMESTARTCHAR = '_a-zA-Z\x80-\xff'
-pattern FIRSTNAMECHAR = '_a-zA-Z\x80-\xff' # names (identifier, keyword, variable...) only can start with these chars
-pattern NAMECHAR = '$NAMESTARTCHAR\.-\d'      # rest of the name, after the first char
-pattern NAME = '$NAMESTARTCHAR[$NAMECHAR]*'
-pattern PREFIXEDNAME	  =   	'$NAME:$NAME'
-pattern QNAME = '$NAME|$PREFIXEDNAME'
-
-pattern NMTOKEN = '[$NAMECHAR]+'
-#NMTOKENS  '([$NAMECHAR]+\s[$NAMECHAR]+)+'
-
-pattern VARNAME =  ''
-
-
-pattern WS = '\s\t\r\n'                    # whitespace
-
-
-
+pattern FIRSTNAMECHAR = '_a-zA-Z\x80-\xff' # inside cset names (identifier, keyword, variable...) only can start with these chars
+pattern NAMECHAR = '$FIRSTNAMECHAR\d'      # inside cset rest of the name, after the first char
+pattern CS = '\w\d_\x80-\xff'   # inside cset
+pattern WS = '\s\t\r\n'                    # inside cset whitespace
 pattern OP = '!#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|'  # operator characters - escaping special regex values
 
 ################ Default Style ################
@@ -128,39 +117,14 @@ pattern OP = '!#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|'  # operator characters - e
 state IN_SSL_DEFAULT:
 
 # ----------- Entering Comments ---------- #
+'(:' : paint(upto, SSL_DEFAULT), => IN_SSL_COMMENT_XQUERY_BLOCK
 
-# Xquery block comments
-'(:' : paint(upto, SSL_DEFAULT), => IN_SSL_COMMENT_XQ_BLOCK
+
 
 # ----------- Entering Whitespace ---------- #
 
 # Just stay in whatever style we currently are using.
 /[$WS]+/  : #stay
-
-
-
-
-# ----------- Entering The OPERATOR State ---------- #
-
-
-# ----------- Entering Operators ---------- #
-# /[$OP]/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)
-# note
-
-# Operator.Word
-/(and|or|mod|div|eq|ge|gt|le|lt|ne|idiv|intersect|in)(?=\b)/  : paint(upto, SSL_DEFAULT), paint(include, CSL_OPERATOR)  => IN_SSL_DEFAULT
-# Operator.Word
-/:=|=|,|>=|>>|>|\[|\(|<=|<<|<|-|!=|\|/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-
-#/(=|!=|<|<=|>|>=)\b/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)     #GeneralComp
-#/(eq|ne|lt|le|gt|ge)\b/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  #ValueComp
-##
-#/(is|<<|>>|\*)\b/  : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-#/(.idiv|intersect|in|is|mod)\b/   : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-#/(where|then|else|external|and|or|at|div|except|to|union|strip|preserve)\b/  : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-#/(order by|stable order by|return|satisfies)\b/   : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-#/(\|\|)\b/    : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)  => IN_SSL_DEFAULT
-
 
 # ----------- Entering Strings ---------- #
 
@@ -175,38 +139,39 @@ state IN_SSL_DEFAULT:
 /[-+]?0[0-7]*/ : paint(upto, SSL_DEFAULT), paint(include, SSL_NUMBER)       # Octal numbers
 /[-+]?[1-9]+/ : paint(upto, SSL_DEFAULT), paint(include, SSL_NUMBER)        # Regular numbers
 
+# ----------- Entering Identifiers ---------- #
+
+/[$FIRSTNAMECHAR][$NAMECHAR]*/ : paint(upto, SSL_DEFAULT), paint(include, SSL_IDENTIFIER)
+
+# ----------- Entering Operators ---------- #
+
+/[$OP]/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)
+# Operator.Word
+/(and|or|mod|div|eq|ge|gt|le|lt|ne|idiv|intersect|in)(?=\b)/  : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)
+# Operator.Word
+/:=|=|,|>=|>>|>|\[|\(|<=|<<|<|-|!=|\|/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)
+
 
 # ----------- Entering Variables ----------
 #             The VARNAME State
 
-# /[$OP]/ : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR)
-# note
-#  pattern to enter  The VARNAME State
-# "$", <"for" "$">, <"let" "$">, <"some" "$">, <"every" "$">
-# <"declare" "variable" "$">
+# --- let $var
+/\$[$FIRSTNAMECHAR][$CS]*/ : paint(upto, SSL_DEFAULT), paint(include, SSL_VARIABLE)
 
-
-/for|let|some|every\s+\$/: paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
-/\$/ : paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
-/declare\s+variable\s+\$/ : paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
+#/for|let|some|every\s+\$/: paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
+#/\$/ : paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
+#/declare\s+variable\s+\$/ : paint(upto, SSL_DEFAULT), redo   => IN_XQ_VARNAME
 # /\$/: paint(upto, SSL_DEFAULT), paint(include, SSL_VARIABLE )   => IN_XQ_VARNAME
-
-
-
-
-# ----------- Entering Identifiers ---------- #
-
-
-'xquery' : paint(upto, SSL_DEFAULT), paint(include, SSL_WORD)  => IN_XQ_XQUERYVERSION
-
-/[$FIRSTNAMECHAR][$NAMECHAR]*/ : paint(upto, SSL_DEFAULT), paint(include, SSL_IDENTIFIER)
-
-
-
 
 ################ In Comments - determines how we exit a comment ################
 
-state IN_SSL_COMMENT_XQ_BLOCK:
+state IN_SSL_COMMENT_TO_EOL:
+/[\r\n]/ : paint(upto, SSL_COMMENT), => IN_SSL_DEFAULT  # back to default state
+
+state IN_SSL_COMMENT_C_BLOCK:
+'*/' : paint(include, SSL_COMMENTBLOCK), => IN_SSL_DEFAULT  # back to default state
+
+state IN_SSL_COMMENT_XQUERY_BLOCK:
 ':)' : paint(include, SSL_COMMENTBLOCK), => IN_SSL_DEFAULT  # back to default state
 
 ################ In Strings - determines how we exit a string ################
@@ -223,22 +188,11 @@ state IN_SSL_XSTRING:
 '`' : paint(include, SSL_STRING), => IN_SSL_DEFAULT  # back to default state
 /\\./ : #stay, anything escaped means it's still a string
 
-
-state IN_XQ_XQUERYVERSION:
-    ';' : paint(upto, SSL_DEFAULT), paint(include, SSL_OPERATOR) => IN_SSL_DEFAULT  # back to default state
-    /encoding|version/  : paint(upto, SSL_DEFAULT), paint(include, SSL_WORD)
-    #'"'   : paint(upto, SSL_DEFAULT), paint(include, SSL_STRING)
-    #'\''  : paint(upto, SSL_DEFAULT), paint(include, SSL_STRING)
-    /[\d\.]+/ : paint(upto, SSL_DEFAULT), paint(include, SSL_STRING)
-    /$NMTOKEN/ : paint(upto, SSL_DEFAULT), paint(include, SSL_STRING)
-
-
 state IN_XQ_VARNAME:
-    /for|let|some|every/ : paint(upto, SSL_DEFAULT), paint(include, SSL_WORD )
-    /declare|variable/ :   paint(upto, SSL_DEFAULT), paint(include, SSL_WORD )
+    /for|let|some|every/ : paint(upto, SSL_DEFAULT), paint(include, SSL_WORD ), => IN_SSL_DEFAULT
+    /declare|variable/ :   paint(upto, SSL_DEFAULT), paint(include, SSL_WORD ), => IN_SSL_DEFAULT
     /\s/ : #stay
-    /\$$NMTOKEN/: paint(upto, SSL_DEFAULT), paint(include, SSL_VARIABLE ) => IN_SSL_DEFAULT
-
+#/\$$NMTOKEN/: paint(upto, SSL_DEFAULT), paint(include, SSL_VARIABLE ) => IN_SSL_DEFAULT
 ################ End of State Handling ################
 
 
@@ -246,7 +200,7 @@ state IN_XQ_VARNAME:
 
 # Uncomment to enable folding on "{" and "}"
 
-fold "{" SSL_OPERATOR +
-fold "}" SSL_OPERATOR -
+#fold "{" SSL_OPERATOR +
+#fold "}" SSL_OPERATOR -
 
 ################ End of Fold Handling ################

@@ -1,8 +1,26 @@
-
-include "html2xq.udl"
-include "xq2html.udl"
+# UDL lexer for xquery.
+#
+# Note: UDL is a state machine and it uses regular expressions to move between
+#       the different language states.
+#
 
 language xquery
 
+include "html2xq.udl"
+
+include "html2js.udl"
+
+include "html2css.udl"
+
+include "css2html.udl"
+#include "css2php.udl"
+
+include "js2html.udl"
+#include "js2php.udl"
+
+include "xq2html.udl"
+
 include "html.udl"
+include "csslex.udl"
+include "jslex.udl"
 include "xqlex.udl"

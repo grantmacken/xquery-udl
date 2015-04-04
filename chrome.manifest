@@ -1,4 +1,4 @@
-content xqueryudl language content/
-skin xqueryudl language classic/1.0 skin/
-locale xqueryudl language en-US locale/en-US/
+content xquery_language content/
+skin xquery_language classic/1.0 skin/
+locale xquery_language en-US locale/en-US/
 
